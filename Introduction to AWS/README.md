@@ -1,6 +1,9 @@
 
 # What is AWS?
 
+<img src="https://github.com/bhuvan-raj/AWS-Zero-to-Hero/blob/main/assets/aws.png" alt="Banner" />
+
+
 Amazon Web Services (AWS) is a comprehensive cloud computing platform provided by Amazon. It offers over 200 fully featured services from data centers globally, including computing power, storage, databases, networking, analytics, machine learning, and more.
 
 **Key Benefits:**
