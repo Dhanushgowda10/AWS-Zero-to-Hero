@@ -1,6 +1,8 @@
 # AWS IAM Policy
 
 ## What is an IAM Policy?
+An IAM Policy is a JSON document in AWS that defines permissions.
+It specifies what actions are allowed or denied, on which AWS resources, and under what conditions.
 
 Key points:
 
