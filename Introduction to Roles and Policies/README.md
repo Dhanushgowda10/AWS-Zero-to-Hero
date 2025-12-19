@@ -56,17 +56,17 @@ Attach to:
 
 ### Sub-categories:
 
-## AWS Managed Policies
+### AWS Managed Policies
 - AWS Managed Policies are predefined IAM policies created and maintained by AWS.
 They provide ready-made permissions for common AWS use cases.
 - AWS Managed Policies are pre-built permission templates that you can directly attach to users, groups, or roles.
   
-## Customer Managed Policies
+### Customer Managed Policies
 - Customer Managed Policies are IAM policies created, owned, and managed by you (the AWS customer).
 They define custom permissions tailored to your organization’s exact requirements.
 - Customer Managed Policies are custom-built permission policies that you create and reuse across IAM users, groups, and roles.
 
-## Inline Policies
+### Inline Policies
 - Inline Policies are IAM policies embedded directly into a single IAM identity (user, group, or role).
 - Inline policies are one-to-one policies that belong to only one identity and cannot be reused.
 - Deleted automatically when the identity is deleted
