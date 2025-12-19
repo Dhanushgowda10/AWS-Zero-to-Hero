@@ -1,5 +1,10 @@
 # Introduction to AWS Identity and Access Management (IAM)
-<img src="https://github.com/bhuvan-raj/AWS-Zero-to-Hero/blob/main/assets/iam.png" alt="Banner" />
+<img 
+  src="https://github.com/bhuvan-raj/AWS-Zero-to-Hero/blob/main/assets/iam.png" 
+  alt="IAM Architecture Diagram"
+  width="800"
+  height="400"
+/>
 
 ## 1. Authentication and Authorization
 
