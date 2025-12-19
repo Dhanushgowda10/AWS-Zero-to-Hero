@@ -44,9 +44,9 @@ Teach **evaluation logic early**:
 
 ---
 
-## Policy Categories (Most Important Section)
+## Policy Categories
 
-### 5. Identity-Based Policies
+## Identity-Based Policies
 
 Attach to:
 
@@ -54,7 +54,7 @@ Attach to:
 * Group
 * Role
 
-## Sub-categories:
+### Sub-categories:
 
 ## AWS Managed Policies
 - AWS Managed Policies are predefined IAM policies created and maintained by AWS.
@@ -81,7 +81,7 @@ Teaching focus:
 
 ---
 
-### 6. Resource-Based Policies
+## Resource-Based Policies
 
 Attach to resources like:
 
