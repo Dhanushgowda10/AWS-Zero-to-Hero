@@ -5,6 +5,8 @@ Cloud computing can be categorized based on **how the cloud infrastructure is de
 ---
 
 # Cloud Deployment Models
+<img src="https://github.com/bhuvan-raj/AWS-Zero-to-Hero/blob/main/assets/cloud-deployment.jpg" alt="Banner" />
+
 
 Cloud **deployment models** define **where the cloud infrastructure is hosted and who has access to it**.
 
@@ -179,6 +181,7 @@ A **community cloud** is a cloud infrastructure **shared by multiple organizatio
 # Cloud Service Models
 
 Cloud **service models** define **what level of control the user has** and **what the cloud provider manages**.
+<img src="https://github.com/bhuvan-raj/AWS-Zero-to-Hero/blob/main/assets/cloud-service.png" alt="Banner" />
 
 ---
 
