@@ -42,6 +42,74 @@ AWS evaluates requests using the following logic:
 
 ---
 
+# Permission Boundaries in AWS IAM
+
+## 1. What is a Permission Boundary?
+
+A **Permission Boundary** is an **IAM managed policy** that defines the **maximum permissions** an IAM **user or role** can have.
+
+> A permission boundary **does not grant permissions**.
+> It only **limits** what the attached IAM policies are allowed to grant.
+
+---
+
+## 2. Why Permission Boundaries Are Needed
+
+Permission boundaries are used to:
+
+* Prevent **privilege escalation**
+* Enable **delegated administration**
+* Enforce **least privilege**
+* Control permissions in **DevOps and automation workflows**
+
+They are especially useful when you allow teams to create roles or users but **do not want them to exceed certain permissions**.
+
+---
+
+## 3. Where Permission Boundaries Apply
+
+* ✅ IAM Users
+* ✅ IAM Roles
+* ❌ IAM Groups
+* ❌ AWS Accounts / OUs
+* ❌ Root user
+
+📌 Permission boundaries apply **only at the IAM identity level**.
+
+---
+
+## 4. How Permission Boundaries Work (Evaluation Logic)
+
+An IAM identity can perform an action **only if ALL of the following allow it**:
+
+1. Identity-based policy allows the action
+2. Permission boundary allows the action
+3. Resource-based policy (if applicable) allows the action
+
+❌ If the permission boundary does **not allow** the action → **final result is DENY**, even if the IAM policy allows it.
+
+---
+
+## 8. Common Use Cases
+
+* Allow teams to create roles **only with limited permissions**
+* Prevent developers from modifying IAM
+* Restrict CI/CD pipelines to specific services
+* Control third-party access
+* Enforce security policies without full admin access
+
+---
+
+## 9. Permission Boundary vs IAM Policy
+
+| Aspect           | IAM Policy          | Permission Boundary |
+| ---------------- | ------------------- | ------------------- |
+| Purpose          | Grants permissions  | Limits permissions  |
+| Grants access    | ✅ Yes               | ❌ No                |
+| Enforces maximum | ❌ No                | ✅ Yes               |
+| Attached to      | User / Role / Group | User / Role         |
+
+---
 
 ## 2. Lab 1 – Cross‑Access Simulation Within the Same AWS Account
 
