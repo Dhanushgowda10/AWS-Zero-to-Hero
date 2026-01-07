@@ -128,7 +128,6 @@ User assumes a role **inside the same AWS account**.
 ### 2.2 Step 1: Create S3 Bucket
 
 * Create a bucket: `my-lab-bucket`
-* Upload a test file: `test.txt`
 
 ---
 
