@@ -134,7 +134,7 @@ User assumes a role **inside the same AWS account**.
 
 ### 2.3 Step 2: Create IAM Role
 
-**Role Name:** `s3-read-role`
+**Role Name:** `s3-crossaccess`
 
 **Trusted Entity (Trust Policy):**
 
@@ -157,20 +157,9 @@ User assumes a role **inside the same AWS account**.
 
 ### 2.4 Step 3: Attach Permissions to Role
 
-Attach this policy to `s3-read-role`:
+Attach `s3fullaccess` policy to `s3-read-role`:
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::my-lab-bucket/*"
-    }
-  ]
-}
-```
+
 
 ---
 
