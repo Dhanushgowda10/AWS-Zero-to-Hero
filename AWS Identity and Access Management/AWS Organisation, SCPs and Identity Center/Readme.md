@@ -100,8 +100,6 @@ This distinction is critical.
 
 An SCP is a **policy that defines the maximum allowed permissions** for:
 
-* All IAM users
-* IAM roles
 * Root user
   within an AWS account or OU.
 
