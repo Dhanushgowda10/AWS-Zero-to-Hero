@@ -1,6 +1,8 @@
 # Module 1: Cloud Storage & Amazon S3 Fundamentals
 
 ##  What is Cloud Storage?
+<img src="https://github.com/bhuvan-raj/AWS-Zero-to-Hero/blob/main/assets/cs.png" alt="Banner" />
+
 
 Cloud Storage is a model of data storage where digital data is stored on **remote servers managed by a cloud provider** and accessed over the internet.
 
