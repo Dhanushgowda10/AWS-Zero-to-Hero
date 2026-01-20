@@ -325,3 +325,68 @@ Storage class selection is the **primary cost optimization mechanism** in S3.
 5. Avoid storing archive data in Directory buckets
 
 ---
+Sure, Bubu. Here’s a **step-by-step lab using the AWS Console** to set up **S3 replication in the same account**:
+
+---
+
+## **S3 Replication Lab (Console Method)**
+
+### **Objective**
+
+Automatically replicate objects from a source S3 bucket to a destination S3 bucket **within the same AWS account**.
+
+---
+
+###  Create Buckets**
+
+1. Log in to the **AWS Management Console** → go to **S3**.
+2. Click **Create bucket**.
+
+   * **Source bucket**: `s3-replication-source`
+   * **Destination bucket**: `s3-replication-destination`
+   * Keep **Region** same or different (same account).
+3. For **both buckets**, enable **Versioning**:
+
+   * Open the bucket → **Properties** → **Bucket Versioning** → **Enable**
+---
+
+###  Configure Replication Rule**
+
+1. Go to **S3 → Source Bucket → Management → Replication Rules → Create replication rule**.
+2. **Step 1: Rule scope**
+
+   * Name the rule (e.g., `ReplicateAllObjects`).
+   * Choose **Apply to all objects** (or filter by prefix/tag if desired).
+3. **Step 2: Destination**
+
+   * Choose **Same AWS account**.
+   * Select **Destination bucket**: `s3-replication-destination`.
+4. **Step 3: IAM Role**
+
+   * Choose **Create a New role**
+5. **Step 4: Additional options**
+
+   * Enable **Replicate delete markers** if you want deletions to replicate.
+6. Review → click **Create rule**.
+
+---
+
+### **Step 4: Test Replication**
+
+1. Upload a file to **source bucket**:
+
+2. Check **destination bucket** in the console after a few seconds.
+
+   * The file should appear automatically.
+
+3. Optional: Delete the file in the source bucket and check if delete marker appears in the destination (if enabled).
+
+---
+
+### **Lab Outcome**
+
+* Source bucket: `s3-replication-source`
+* Destination bucket: `s3-replication-destination`
+* Objects are automatically replicated in near real-time.
+* IAM Role handles permissions for replication.
+
