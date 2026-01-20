@@ -390,3 +390,171 @@ Automatically replicate objects from a source S3 bucket to a destination S3 buck
 * Objects are automatically replicated in near real-time.
 * IAM Role handles permissions for replication.
 
+Here’s a **structured lab note for S3 Cross-Account Replication (CAR)** that you can use for teaching or your own reference:
+
+---
+
+# **AWS S3 Cross-Account Replication (CAR) Lab Note**
+
+## **Objective**
+
+Set up S3 replication to automatically replicate objects from a **source bucket in Account A** to a **destination bucket in Account B**.
+
+---
+
+## **Pre-requisites**
+
+1. Two AWS accounts (Account A: Source, Account B: Destination).
+2. Two S3 buckets:
+
+   * **Source bucket** (Account A)
+   * **Destination bucket** (Account B)
+3. Versioning enabled on **both buckets**.
+4. IAM roles/policies for replication permissions.
+
+---
+
+## **Step 1: Enable Versioning**
+
+* Versioning must be **enabled** on both source and destination buckets.
+
+**Source Bucket (Account A):**
+Console → S3 → Select Bucket → Properties → Bucket Versioning → Enable
+
+**Destination Bucket (Account B):**
+Console → S3 → Select Bucket → Properties → Bucket Versioning → Enable
+
+---
+
+## **Step 2: Create IAM Role in Destination Account**
+
+* **Purpose:** Allow the source account to replicate objects into the destination bucket.
+
+1. Go to **Account B → IAM → Roles → Create Role**
+2. Choose **Another AWS Account**, enter **Account A ID**
+3. Attach this policy (replace bucket name):
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:ReplicateObject",
+        "s3:ReplicateDelete",
+        "s3:ReplicateTags"
+      ],
+      "Resource": "arn:aws:s3:::destination-bucket/*"
+    }
+  ]
+}
+```
+
+4. Name the role `s3-cross-account-replication-role`
+5. Note the **Role ARN** (e.g., `arn:aws:iam::AccountB_ID:role/s3-cross-account-replication-role`)
+
+---
+
+## **Step 3: Attach Bucket Policy to Destination Bucket**
+
+* Destination bucket must **trust the source account**:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "AWS": "arn:aws:iam::AccountA_ID:role/s3-replication-role" },
+      "Action": [
+        "s3:ReplicateObject",
+        "s3:ReplicateDelete",
+        "s3:ReplicateTags"
+      ],
+      "Resource": "arn:aws:s3:::destination-bucket/*"
+    }
+  ]
+}
+```
+
+---
+
+## **Step 4: Create IAM Role in Source Account**
+
+* **Purpose:** Source bucket uses this role to perform replication.
+
+1. Go to **Account A → IAM → Roles → Create Role**
+2. Choose **S3** → **Replication**
+3. Attach policy (replace bucket names):
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObjectVersion",
+        "s3:GetObjectVersionAcl",
+        "s3:GetObjectVersionTagging"
+      ],
+      "Resource": "arn:aws:s3:::source-bucket/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sts:AssumeRole"
+      ],
+      "Resource": "arn:aws:iam::AccountB_ID:role/s3-cross-account-replication-role"
+    }
+  ]
+}
+```
+
+4. Name it `s3-replication-role`
+5. Note the **Role ARN** (used in replication rule).
+
+---
+
+## **Step 5: Configure Replication Rule on Source Bucket**
+
+1. Go to **Account A → S3 → Source Bucket → Management → Replication Rules → Create Rule**
+2. **Rule Scope:** Apply to all objects or specific prefix/tag
+3. **Destination:**
+
+   * Choose **Another AWS Account**
+   * Enter **Account B ID**
+   * Enter **Destination Bucket**
+   * Choose **IAM Role** → `s3-replication-role`
+4. **Additional Options:** Enable replication of **delete markers**, **replicate existing objects** (optional)
+5. Review and **Create Rule**
+
+---
+
+## **Step 6: Test Replication**
+
+1. Upload an object to **source bucket**:
+
+
+2. Check **destination bucket** in Account B → object should appear automatically (replication is near real-time).
+3. Optional: Delete the file in source bucket → verify delete marker appears in destination (if enabled).
+
+---
+
+## **Step 7: Lab Outcome**
+
+* Objects in the source bucket (Account A) are **replicated to a destination bucket in Account B** automatically.
+* Delete markers can be replicated if enabled.
+* IAM roles ensure **secure cross-account replication**.
+
+---
+
+✅ **Notes / Best Practices**
+
+* Use **unique object prefixes** if replicating multiple types of data.
+* Replication can be **same-region** or **cross-region**.
+* Replication **does not copy existing objects** by default; you need to enable **replicate existing objects** if required.
+* For **large-scale replication**, monitor **replication metrics in S3 → Metrics**.
+
+---
