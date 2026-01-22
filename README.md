@@ -38,6 +38,7 @@ AWS Zero-to-Hero is a comprehensive learning repository that takes you from clou
     - [S3 Limits,Multipart upload & Replication](./AWS%20Simple%20Storage%20Service(S3)/S3%20Limits%20,%20Multipart%20upload%20&%20Replication/)
     - [Object Ownerships and Bucket ACLs](./AWS%20Simple%20Storage%20Service(S3)/Object%20Ownerships%20and%20Bucket%20ACLs/)
     - [S3 Static Website hosting](./AWS%20Simple%20Storage%20Service(S3)/S3%20Static%20Website%20hosting/)
+    - [Requestor Pays & Server Access Logging ](./AWS%20Simple%20Storage%20Service(S3)/Requestor%20Pays%20&%20Server%20Access%20Logging/)
 
 
 
