@@ -41,9 +41,10 @@ AWS Zero-to-Hero is a comprehensive learning repository that takes you from clou
     - [Requestor Pays & Server Access Logging ](./AWS%20Simple%20Storage%20Service(S3)/Requestor%20Pays%20&%20Server%20Access%20Logging/)
     - [Lifecycle Configuration](./AWS%20Simple%20Storage%20Service(S3)/Lifecycle%20Configuration/)
     - [Bucket Policy](./AWS%20Simple%20Storage%20Service(S3)/Bucket%20Policy/)
+    - [S3 Encryption](./AWS%20Simple%20Storage%20Service(S3)/S3%20Encryption/)
     - [Transfer Acceleration](./AWS%20Simple%20Storage%20Service(S3)/Transfer%20Acceleration/)
     - [S3 ABAC](./AWS%20Simple%20Storage%20Service(S3)/S3%20ABAC/)
-    - [S3 Encryption](./AWS%20Simple%20Storage%20Service(S3)/S3%20Encryption/)
+   
 
 
 
