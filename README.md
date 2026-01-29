@@ -43,6 +43,7 @@ AWS Zero-to-Hero is a comprehensive learning repository that takes you from clou
     - [Bucket Policy](./AWS%20Simple%20Storage%20Service(S3)/Bucket%20Policy/)
     - [Transfer Acceleration](./AWS%20Simple%20Storage%20Service(S3)/Transfer%20Acceleration/)
     - [S3 ABAC](./AWS%20Simple%20Storage%20Service(S3)/S3%20ABAC/)
+    - [S3 Encryption](./AWS%20Simple%20Storage%20Service(S3)/S3%20Encryption/)
 
 
 
