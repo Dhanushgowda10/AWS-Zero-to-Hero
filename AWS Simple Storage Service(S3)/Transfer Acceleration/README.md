@@ -311,3 +311,111 @@ Key difference:
 
 > **Amazon S3 Transfer Acceleration uses CloudFront edge locations and AWS’s global private network to speed up uploads and downloads to S3 buckets from geographically distant clients.**
 
+Certainly, **Bubu**.
+
+Below is a **step-by-step, technically correct explanation of how to upload a file using the S3 Transfer Acceleration endpoint**, along with **what actually happens internally**.
+
+---
+
+# **Uploading a File Using S3 Transfer Acceleration Endpoint**
+
+---
+
+## 1. Prerequisites
+
+Before uploading, the following must be in place:
+
+### ✅ 1. S3 Bucket Requirements
+
+* Bucket name must be **DNS-compliant**
+* **No dots (`.`)** in bucket name
+* Example:
+
+  ```
+  my-upload-bucket-prod
+  ```
+
+---
+
+### ✅ 2. Transfer Acceleration Enabled
+
+In S3 Console:
+
+```
+S3 → Bucket → Properties → Transfer acceleration → Enable
+```
+
+After enabling, AWS activates the accelerated endpoint.
+
+---
+
+##  Transfer Acceleration Endpoint Format
+
+Once enabled, AWS provides this endpoint:
+
+```
+bucket-name.s3-accelerate.amazonaws.com
+```
+
+Example:
+
+```
+my-upload-bucket-prod.s3-accelerate.amazonaws.com
+```
+
+This endpoint is **global** and automatically routes traffic to the nearest AWS edge location.
+
+---
+
+##  Upload Methods
+
+You can upload using:
+
+1. AWS CLI
+2. AWS SDK (Python, Java, etc.)
+3. Application code (frontend/backend)
+
+Console upload **does not use** transfer acceleration.
+
+Only API-based uploads use it.
+
+---
+
+##  Upload Using AWS CLI 
+
+### Step 1: Configure AWS CLI
+
+```
+aws configure
+```
+
+---
+
+###  Upload using accelerate option
+
+```bash
+aws s3 cp myfile.zip s3://my-upload-bucket-prod/myfile.zip \
+  --endpoint-url https://s3-accelerate.amazonaws.com
+```
+ 
+
+## Alternative and cleaner method:
+
+```bash
+aws configure set default.s3.use_accelerate_endpoint true
+```
+
+Then upload normally:
+
+```bash
+aws s3 cp myfile.zip s3://my-upload-bucket-prod/
+```
+
+CLI automatically uses:
+
+```
+bucket-name.s3-accelerate.amazonaws.com
+```
+
+---
+
