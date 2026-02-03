@@ -44,7 +44,14 @@ AWS Zero-to-Hero is a comprehensive learning repository that takes you from clou
     - [S3 Encryption](./AWS%20Simple%20Storage%20Service(S3)/S3%20Encryption/)
     - [Transfer Acceleration](./AWS%20Simple%20Storage%20Service(S3)/Transfer%20Acceleration/)
     - [S3 ABAC](./AWS%20Simple%20Storage%20Service(S3)/S3%20ABAC/)
-   
+
+
+### 6. AWS VIRTUAL PRIVATE CLOUD (VPC)
+
+* **Description:** This section provides a detailed understanding of Amazon Virtual Private Cloud (VPC), covering core networking concepts such as CIDR blocks, subnets, route tables, internet gateways, NAT gateways, security groups, and network ACLs. It explains how AWS enables secure, isolated networking environments and how VPC components are used to design scalable, highly available, and secure cloud architectures in real-world AWS deployments.
+* **Explore:** Navigate to [AWS Virtual Private Cloud](./Virtual%20Private%20Cloud(VPC)) for detailed information.
+  
+     - [Introduction to AWS VPC](./Virtual%20Private%20Cloud(VPC)/Introduction%20to%20VPC/)
 
 
 
